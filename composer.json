@@ -1,6 +1,6 @@
 {
     "name": "wart/wart",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "description": "Extends the Pimple dependency injection container and provides auto class resolving, instantiation and (constructor) injection",
     "keywords": ["dependency injection", "container"],
     "license": "MIT",
@@ -16,7 +16,7 @@
         }
     },
     "require": {
-        "pimple/pimple": "1.*"
+        "pimple/pimple": "2.*"
     },
     "require-dev": {
         "phpunit/phpunit": "*",

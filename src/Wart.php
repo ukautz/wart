@@ -172,13 +172,13 @@ class Wart extends Pimple
         }
 
         $self             = $this;
-        $this[$className] = $this->share(function () use ($self, $className) {
+        $this[$className] = function () use ($self, $className) {
             return $self->createInstance($className);
-        });
+        };
         if ($origClassName !== $className) {
-            $this[$origClassName] = $this->share(function () use ($self, $className) {
+            $this[$origClassName] = function () use ($self, $className) {
                 return $this[$className];
-            });
+            };
         }
 
         return $return ? $this[$className] : null;
