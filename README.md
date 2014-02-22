@@ -114,7 +114,7 @@ The `create` method immediately creates an instance. If you just want to pre-reg
 ``` php
 <?php
 
-$container = new Wart(array(), array(), false);
+$container = new Wart(array(), array('autoResolve' => false));
 $container['\Foo\Bar\Baz']->hello();  # would throw and exception -> key does not exist
 $container->register('\Foo\Bar\Baz'); # does not return anything
 $container['\Foo\Bar\Baz']->hello();  # now the key exists

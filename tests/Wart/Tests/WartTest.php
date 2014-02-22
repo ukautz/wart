@@ -51,7 +51,7 @@ class WartTest extends \PHPUnit_Framework_TestCase
     {
         $wart = new \Wart(array(), array(
             'createArgs' => array(
-                '\Wart\Tests\Fixtures\Baz' => ['bla']
+                '\Wart\Tests\Fixtures\Baz' => array('bla')
             )
         ));
         $wart->create('\Wart\Tests\Fixtures\Baz');
@@ -65,7 +65,7 @@ class WartTest extends \PHPUnit_Framework_TestCase
         $wart = new \Wart(array(), array(
             'createArgs' => array(
                 '\Wart\Tests\Fixtures\Baz' => function (array $buildArgs, $className, \Wart $p) {
-                        return array_merge($buildArgs, ['bla']);
+                        return array_merge($buildArgs, array('bla'));
                     }
             )
         ));
@@ -123,7 +123,7 @@ class WartTest extends \PHPUnit_Framework_TestCase
     {
         $wart = new \Wart(array(), array(
             'createArgs' => array(
-                '\Wart\Tests\Fixtures\Baz' => ['bla']
+                '\Wart\Tests\Fixtures\Baz' => array('bla')
             )
         ));
         $wart->register('\Wart\Tests\Fixtures\Baz');
@@ -199,7 +199,6 @@ class WartTest extends \PHPUnit_Framework_TestCase
         $exceptionMessage = '';
         try {
             $foo = $wart['\Wart\Tests\Fixtures\Cycle1'];
-            error_log("FOO");
         } catch (\RuntimeException $e) {
             $exceptionMessage = $e->getMessage();
         }
