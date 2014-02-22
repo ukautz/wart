@@ -177,7 +177,7 @@ class Wart extends Pimple
         };
         if ($origClassName !== $className) {
             $this[$origClassName] = function () use ($self, $className) {
-                return $this[$className];
+                return $self[$className];
             };
         }
 
@@ -197,12 +197,14 @@ class Wart extends Pimple
     /**
      * Create instance of class.
      *
+     * Public visibility to comply with PHP 5.3
+     *
      * @param string $className Absolute class name
      *
      * @throws RuntimeException
      * @return object
      */
-    protected function createInstance($className)
+    public function createInstance($className)
     {
         $classReflection = new \ReflectionClass($className);
         if (!$classReflection->hasMethod('__construct')) {
