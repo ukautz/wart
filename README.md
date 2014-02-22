@@ -79,7 +79,7 @@ Additional namespaces can be passed to the `Wart` constructor:
 ``` php
 <?php
 
-$container = new Wart(array(), array('namespaces' => array(\Foo', '\Foo\Bar')));
+$container = new Wart(array(), array('namespaces' => array('\Foo', '\Foo\Bar')));
 $container['Baz']->hello(); # checks for \Baz and \Foo\Baz and \Foo\Bar\Baz - in that order!
 ```
 
@@ -89,7 +89,7 @@ Or set (replaced!) later:
 <?php
 
 $container = new Wart;
-$container->setNamespaces(array(\Foo', '\Foo\Bar'));
+$container->setNamespaces(array('\Foo', '\Foo\Bar'));
 $container['Baz']->hello(); # checks for \Baz and \Foo\Baz and \Foo\Bar\Baz - in that order!
 ```
 
