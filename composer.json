@@ -1,0 +1,25 @@
+{
+    "name": "wart/wart",
+    "version": "0.1.0",
+    "description": "Extends the Pimple dependency injection container and provides auto class resolving, instantiation and (constructor) injection",
+    "keywords": ["dependency injection", "container"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ulrich Kautz",
+            "email": "uk@fortrabbit.com"
+        }
+    ],
+    "autoload": {
+        "psr-0": {
+            "Wart": "src/"
+        }
+    },
+    "require": {
+        "pimple/pimple": "1.*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "*",
+        "mockery/mockery": "*"
+    }
+}
