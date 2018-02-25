@@ -1,6 +1,5 @@
 {
-    "name": "wart/wart",
-    "version": "0.2.0",
+    "name": "meetmatt/wart",
     "description": "Extends the Pimple dependency injection container and provides auto class resolving, instantiation and (constructor) injection",
     "keywords": ["dependency injection", "container"],
     "license": "MIT",
