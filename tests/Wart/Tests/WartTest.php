@@ -30,7 +30,7 @@ class WartTest extends TestCase
     {
         $wart = new \Wart();
         $foo = $wart->create('\Wart\Tests\Fixtures\Foo');
-        $this->assertInstanceOf(Fixtures\Foo::class, $foo);
+        $this->assertInstanceOf('\Wart\Tests\Fixtures\Foo', $foo);
     }
 
     public function testAccessCreatedClassInstance()
@@ -248,8 +248,8 @@ class WartTest extends TestCase
         $foo = $wart->create('\Wart\Tests\Fixtures\Foo');
         unset($wart['\Wart\Tests\Fixtures\Foo']);
         $newFoo = $wart->create('\Wart\Tests\Fixtures\Foo');
-        $this->assertInstanceOf(Fixtures\Foo::class, $foo);
-        $this->assertInstanceOf(Fixtures\Foo::class, $newFoo);
+        $this->assertInstanceOf('\Wart\Tests\Fixtures\Foo', $foo);
+        $this->assertInstanceOf('\Wart\Tests\Fixtures\Foo', $newFoo);
     }
 
     /**
@@ -330,7 +330,7 @@ class WartTest extends TestCase
     public function testSetAliasesWithInterface()
     {
         $wart = new \Wart();
-        $wart->setAliases([Fixtures\FooInterface::class => Fixtures\Foo::class]);
-        $this->assertInstanceOf(Fixtures\Foo::class, $wart[Fixtures\FooInterface::class]);
+        $wart->setAliases(['\Wart\Tests\Fixtures\FooInterface' => '\Wart\Tests\Fixtures\Foo']);
+        $this->assertInstanceOf('\Wart\Tests\Fixtures\Foo', $wart['\Wart\Tests\Fixtures\FooInterface']);
     }
 }
