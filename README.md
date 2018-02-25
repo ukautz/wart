@@ -72,6 +72,24 @@ $container->setAutoResolve(false);
 echo $container['\Foo\Bar\Baz'];
 ```
 
+## Aliases
+
+Aliases allow to map service interface to actual implementation:
+
+``` php
+$container->setAliases(['\Foo\Bar\BazInterface' => '\Foo\Bar\Baz']);
+$container['\Foo\Bar\BazInterface']; # returns Baz
+```
+
+Aliases can be set with `setAliases` or can be passed to the `Wart` constructor:
+``` php
+$container = new \Wart([], [
+    'aliases' => [
+        '\Foo\Bar\BazInterface' => '\Foo\Bar\Baz'
+    ]
+]);
+```
+
 ## Additional namespaces
 
 Additional namespaces can be passed to the `Wart` constructor:
@@ -95,7 +113,7 @@ $container['Baz']->hello(); # checks for \Baz and \Foo\Baz and \Foo\Bar\Baz - in
 
 Mind that the order matters!
 
-## Creating and registering class instances manually
+## Creating and auto-registering class instances manually
 
 With auto resolving disabled, the class instances can be pre-generated:
 
@@ -109,14 +127,14 @@ $instance->hello();
 $container['\Foo\Bar\Baz']->hello(); # now the key exists
 ```
 
-The `create` method immediately creates an instance. If you just want to pre-register an instance for later key usage, use `register`:
+The `create` method immediately creates an instance. If you just want to pre-register an instance for later key usage, use `autoRegister`:
 
 ``` php
 <?php
 
 $container = new Wart(array(), array('autoResolve' => false));
 $container['\Foo\Bar\Baz']->hello();  # would throw and exception -> key does not exist
-$container->register('\Foo\Bar\Baz'); # does not return anything
+$container->autoRegister('\Foo\Bar\Baz'); # does not return anything
 $container['\Foo\Bar\Baz']->hello();  # now the key exists
 ```
 
@@ -183,7 +201,7 @@ $container = new Wart(array(), array(
         }
     )
 ));
-$container->register('\Foo\Bar\Baz');   # does not return anything and does NOT create an object instance just yet
+$container->autoRegister('\Foo\Bar\Baz');   # does not return anything and does NOT create an object instance just yet
 $container['\Foo\Bar\Baz']->hello();    # prints "Hello world\n"
 $container['\Foo\Bar\Bla']->hello();    # prints "Hello you\n"
 $container['\Foo\Bar\Yadda']->hello();  # prints "Hello !\nHello you\n"
