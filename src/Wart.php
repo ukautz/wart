@@ -309,11 +309,15 @@ class Wart extends Pimple
     protected function resolveClassName($className)
     {
         $relativeClassName = $this->relativeClassName($className);
+        $absoluteClassName = $this->absoluteClassName($className);
         if (array_key_exists($relativeClassName, $this->aliases)) {
             $className = $this->aliases[$relativeClassName];
         }
+        if (array_key_exists($absoluteClassName, $this->aliases)) {
+            $className = $this->aliases[$absoluteClassName];
+        }
         if (class_exists($className)) {
-            return $this->absoluteClassName($className);
+            return $className;
         }
         foreach ($this->namespaces as $namespace) {
             $testClass = "$namespace\\$className";
