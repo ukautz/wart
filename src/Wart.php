@@ -24,6 +24,8 @@
  * THE SOFTWARE.
  */
 
+use Pimple\Container;
+
 /**
  * Wart main class.
  *
@@ -32,7 +34,7 @@
  * @package wart
  * @author  Ulrich Kautz
  */
-class Wart extends Pimple
+class Wart extends Container
 {
     /**
      * @var string[] List of additional namespaces
