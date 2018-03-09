@@ -5,12 +5,11 @@
 
 namespace Wart\Tests\Fixtures;
 
-
 /**
  * Class Foo
  * @package Wart\Tests\Fixtures
  **/
-class Foo implements FooInterface
+interface FooInterface
 {
 
 }
