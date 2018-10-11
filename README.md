@@ -1,5 +1,7 @@
 # Wart
 
+[![Build Status](https://travis-ci.org/ukautz/wart.svg?branch=master)](https://travis-ci.org/ukautz/wart)
+
 Extends the [Pimple](https://github.com/fabpot/Pimple) dependency injection container and provides auto class resolving, instantiation and (constructor) injection
 
 ## Synopsis
